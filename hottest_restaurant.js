@@ -22,7 +22,7 @@ app.get('/tables', function (req, res) {
     res.sendFile(path.join(__dirname, '/tables.html'));
 });
 
-app.get('/make', function (req, res) {
+app.get('/reserve', function (req, res) {
     console.log('make');
     res.sendFile(path.join(__dirname, '/make.html'));
 });
