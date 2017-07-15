@@ -33,7 +33,7 @@ app.get('/api/tables', function (req, res) {
   res.json(tables);
 });
 
-app.post('/api/reserve', function (req, res) {
+app.post('/api/new', function (req, res) {
     console.log('reserve request submitted');
     console.log(req.body);
 
