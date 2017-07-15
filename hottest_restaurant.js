@@ -14,17 +14,17 @@ console.log("it runs");
 
 app.get('/', function (req, res) {
     console.log('hey, it works');
-    res.sendFile(path.join(__dirname, '/index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/tables', function (req, res) {
     console.log('tables');
-    res.sendFile(path.join(__dirname, '/tables.html'));
+    res.sendFile(path.join(__dirname, 'tables.html'));
 });
 
 app.get('/reserve', function (req, res) {
     console.log('make');
-    res.sendFile(path.join(__dirname, '/make.html'));
+    res.sendFile(path.join(__dirname, 'make.html'));
 });
 
 var tables = [];
