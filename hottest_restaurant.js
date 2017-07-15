@@ -40,7 +40,7 @@ app.post('/api/reserve', function (req, res) {
  var newReservation = req.body;
 
  tables.push(newReservation);
- 
+
   var isBooked;
   if(tables.length <= 5){
     isBooked = true;
@@ -49,9 +49,15 @@ app.post('/api/reserve', function (req, res) {
     isBooked = false;
   }
 
- res.json(isBooked);
-
+ app.post('/api/clear', function (req, res) {
+  console.log('clear all tables');
+  tables = [];
+  res.sendFile(path.join(__dirname, 'app/public/tables.html'));
 });
+
+ res.json(isBooked);
+});
+
 
 app.listen(PORT, function () {
     console.log('App listening on PORT ' + PORT);
