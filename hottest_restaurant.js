@@ -22,9 +22,9 @@ app.get('/tables', function (req, res) {
     res.sendFile(path.join(__dirname, '/tables.html'));
 });
 
-app.get('/reservations', function (req, res) {
-    console.log('reservations');
-    res.sendFile(path.join(__dirname, '/reservations.html'));
+app.get('/make', function (req, res) {
+    console.log('make');
+    res.sendFile(path.join(__dirname, '/make.html'));
 });
 
 var tables = [];
