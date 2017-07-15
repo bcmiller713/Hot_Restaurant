@@ -76,10 +76,10 @@
     		$.post(baseURL + "/api/new", newReservation)
     		.done(function(data) {
     			console.log(data);
-    			if (data) {
+    			if (data == true) {
     			alert("Your table has been reserved!");
     			}
-    			else {
+    			if (data == false) {
     			alert("Sorry, every table is currently full. You have been added to the waitlist.");
     			}
     			$("#reserve_name").val("");

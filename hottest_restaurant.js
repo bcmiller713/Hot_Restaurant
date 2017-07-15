@@ -30,32 +30,37 @@ app.get('/reserve', function (req, res) {
 var tables = [];
 
 app.get('/api/tables', function (req, res) {
-  res.json(tables);
+  res.json(tables.slice(0,5));
 });
 
+app.get('/api/waitlist', function(req, res) {
+  res.json(tables.slice(5));
+})
+
 app.post('/api/new', function (req, res) {
-    console.log('reserve request submitted');
-    console.log(req.body);
+  console.log('reserve request submitted');
+  console.log(req.body);
 
- var newReservation = req.body;
+  var newReservation = req.body;
 
- tables.push(newReservation);
+  tables.push(newReservation);
 
-  var isBooked;
-  if(tables.length <= 5){
-    isBooked = true;
-  }
-  else{
-    isBooked = false;
-  }
+  // var isBooked;
+  // if(tables.length <= 5){
+  //   isBooked = true;
+  // }
+  // else{
+  //   isBooked = false;
+  // }
 
- app.post('/api/clear', function (req, res) {
+  res.json(newReservation);
+
+});
+
+app.post('/api/clear', function (req, res) {
   console.log('clear all tables');
   tables = [];
   res.sendFile(path.join(__dirname, 'app/public/tables.html'));
-});
-
- res.json(isBooked);
 });
 
 
