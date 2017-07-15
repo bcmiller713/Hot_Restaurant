@@ -33,6 +33,26 @@ app.get('/api/tables', function (req, res) {
   res.json(tables);
 });
 
+app.post('/api/reserve', function (req, res) {
+    console.log('reserve request submitted');
+    console.log(req.body);
+
+ var newReservation = req.body;
+
+ tables.push(newReservation);
+ 
+  var isBooked;
+  if(tables.length <= 5){
+    isBooked = true;
+  }
+  else{
+    isBooked = false;
+  }
+
+ res.json(isBooked);
+
+});
+
 app.listen(PORT, function () {
     console.log('App listening on PORT ' + PORT);
 });
